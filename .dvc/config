@@ -1,5 +1,6 @@
 [core]
     remote = drive
+    analytics = false
 ['remote "drive"']
     url = gdrive://1k6oYWiK_KOE-_fUZxFCeAH2hvH7bz1dL
     gdrive_client_id = 302970288799-iive0t0kto0iikblo4at28fckqu86ohr.apps.googleusercontent.com
