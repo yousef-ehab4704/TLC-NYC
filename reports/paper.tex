@@ -179,6 +179,35 @@ Coordination difficulty (6-person team) & Medium & Use shared tools (Trello, Git
 \label{table:risk}
 \end{table}
 
+\subsection{Explanatory Data Analysis}
+We began by initializing a Spark session and loading the taxi trip dataset from the Parquet file, which is efficient for handling large-scale data. The initial inspection of the data, including printing a few rows and displaying summary statistics, allowed us to quickly understand the structure, types, and potential issues such as missing or anomalous values. We then explored temporal patterns by extracting the hour and day of the week from the pickup timestamps, which helped us visualize and identify peak and off-peak periods for taxi rides. This temporal analysis was further enhanced by creating a heatmap that revealed how ride demand fluctuates not just by hour but also across different days of the week, providing valuable insights for operational planning.
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{eda-bar-chart.png}
+  \centering
+  \caption{Bar plot of taxi ride demand varies by hour}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{eda-heatmap.png}
+  \centering
+  \caption{Heatmap of ride counts by hour and day of week}
+\end{figure}
+
+Spatial analysis was conducted by grouping the data by pickup and drop-off locations, allowing us to identify the most active zones in the city and locations with the highest imbalance between pickups and drop-offs. This information is crucial for understanding demand distribution and optimizing fleet allocation. We also included a map for spatial context. To understand relationships between key variables, we performed a correlation analysis, focusing on the relationship between trip distance and tip amount. By calculating the Pearson correlation coefficient and visualizing the results, we gained insights into how these variables interact, which can inform future modeling and business strategies. Throughout the EDA, we ensured data quality by filtering out null or invalid entries before performing analyses, ensuring the reliability of our findings. Each step in this process was designed to build a comprehensive understanding of the dataset, uncover patterns and anomalies, and lay a solid foundation for subsequent predictive modeling and decision-making.
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{eda-top-locations.png}
+  \centering
+  \caption{Bar plot of top 15 most active locations (pickup + dropoff)}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{eda-correlation-matrix.png}
+  \centering
+  \caption{Correlation matrix between tip amount and trip distance}
+\end{figure}
+
 \section{References}
 \begin{thebibliography}{15}
 \bibitem{tlcdata}
